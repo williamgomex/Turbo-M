@@ -1,10 +1,14 @@
 package com.zoomcreativo.turbo_m;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 
@@ -21,6 +25,9 @@ import com.zoomcreativo.turbo_m.dummy.DummyContent;
  */
 public class ItemListFragment extends ListFragment {
 
+
+    private String[] menu = {"","","",""};
+    int[] images = {R.drawable.turbom1en,R.drawable.turbom2en,R.drawable.turbom3en,R.drawable.turbom4en};
     /**
      * The serialization (saved instance state) Bundle key representing the
      * activated item position. Only used on tablets.
@@ -71,12 +78,8 @@ public class ItemListFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // TODO: replace with a real list adapter.
-        setListAdapter(new ArrayAdapter<DummyContent.DummyItem>(
-                getActivity(),
-                android.R.layout.simple_list_item_activated_1,
-                android.R.id.text1,
-                DummyContent.ITEMS));
+        Adaptador listadapter = new Adaptador(getActivity(),this.menu,this.images);
+        setListAdapter(listadapter);
     }
 
     @Override
@@ -114,8 +117,6 @@ public class ItemListFragment extends ListFragment {
     public void onListItemClick(ListView listView, View view, int position, long id) {
         super.onListItemClick(listView, view, position, id);
 
-        // Notify the active callbacks interface (the activity, if the
-        // fragment is attached to one) that an item has been selected.
         mCallbacks.onItemSelected(DummyContent.ITEMS.get(position).id);
     }
 
@@ -148,5 +149,31 @@ public class ItemListFragment extends ListFragment {
         }
 
         mActivatedPosition = position;
+
+    }
+}
+
+class Adaptador extends ArrayAdapter<String>
+{
+    int[] images;
+    String[] titulos;
+    Context context;
+
+    Adaptador(Context c,String titu[],int imgs[]){
+        super(c,R.layout.single_row,R.id.imagemenu,titu);
+        this.context=c;
+        this.titulos=titu;
+        this.images=imgs;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+
+        LayoutInflater inflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View row = inflater.inflate(R.layout.single_row,parent,false);
+
+        ImageView image = (ImageView) row.findViewById(R.id.imagemenu);
+        image.setImageResource(images[position]);
+        return row;
     }
 }

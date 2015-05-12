@@ -1,9 +1,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp" android:baselineAligned="false"
+    android:layout_height="match_parent" android:baselineAligned="false"
     android:divider="?android:attr/dividerHorizontal" android:orientation="horizontal"
-    android:showDividers="middle" tools:context=".ItemListActivity">
+    android:showDividers="middle" tools:context=".ItemListActivity"
+    android:background="#4f91b8">
 
     <!--
     This layout is a two-pane layout for the Items
@@ -11,7 +11,8 @@
     
     -->
 
-    <fragment android:id="@+id/item_list" android:name="com.zoomcreativo.turbo_m.ItemListFragment"
+    <fragment android:id="@+id/item_list"
+        android:name="com.zoomcreativo.turbo_m.ItemListFragment"
         android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
         tools:layout="@android:layout/list_content" />
 

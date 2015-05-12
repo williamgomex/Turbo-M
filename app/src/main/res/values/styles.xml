@@ -5,4 +5,45 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="textviewtitle">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">#4f91b8</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">30dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+    </style>
+
+    <style name="textviewtext">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">#4f91b8</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:gravity">fill_horizontal|right</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+    </style>
+
+    <style name="imagestyle">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+
+    </style>
+
+    <style name="linearlayoutv">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">#4f91b8</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+    </style>
+
 </resources>
